@@ -1,0 +1,22 @@
+<mat-card class="custom">
+  <mat-card-content>
+    <div>
+      <span class="label">Name:</span>
+      <span class="value">
+        {{ _bookmark.name }}
+      </span>
+    </div>
+    <div>
+      <span class="label">Type:</span>
+      <span class="value">
+        {{ _bookmark.bookmarkType }}
+      </span>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <a href="{{ _bookmark.url }}">
+      <button mat-raised-button [color]="'success'">Show</button>
+    </a>
+    <button mat-raised-button [color]="'danger'" (click)="deleteBookmark()">Delete</button>
+  </mat-card-actions>
+</mat-card>

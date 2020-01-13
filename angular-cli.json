@@ -36,7 +36,7 @@
   "lint": [
     {
       "files": "src/**/*.ts",
-      "project": "src/tsconfig.json"
+      "project": "tsconfig.json"
     },
     {
       "files": "e2e/**/*.ts",

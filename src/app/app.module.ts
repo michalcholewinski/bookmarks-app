@@ -1,10 +1,14 @@
+import { BookmarksModule } from './bookmarks/bookmarks.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './app-routing.module';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { bookmarksReducer } from './reducers/bookmarks.reducers';
+import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookmarkComponent } from './bookmarks/bookmark/bookmark.component';
 
 @NgModule({
   declarations: [
@@ -12,11 +16,14 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BookmarksModule,
+    SharedModule,
+    StoreModule.forRoot({bookmarks: bookmarksReducer}),
+    BrowserAnimationsModule
   ],
   providers: [],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

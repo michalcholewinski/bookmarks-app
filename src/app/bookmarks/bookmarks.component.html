@@ -1,0 +1,30 @@
+<form [formGroup]="form" class="form" (ngSubmit)="onSubmit()">
+  <mat-card class="form-container">
+    <mat-form-field>
+      <input class="form-control" matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input class="form-control" matInput placeholder="Url" formControlName="url">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Bookmark Type</mat-label>
+      <mat-select class="form-control" id="type" formControlName="type">
+        <mat-option *ngFor="let type of types" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button [disabled]="!form.valid" [color]="'success'">Submit</button>
+  </mat-card>
+</form>
+<mat-list role="list">
+  <app-bookmark
+    [bookmark]="bookmark"
+    (delete)="delete($event)"
+    *ngFor="let bookmark of bookmarks$ | async"
+  >
+  </app-bookmark>
+</mat-list>
+
+
+
