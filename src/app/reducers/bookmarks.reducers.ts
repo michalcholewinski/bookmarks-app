@@ -9,7 +9,7 @@ const addBookmark = (state, params: Bookmark) => {
 }
 
 const removeBookmark = (state: Bookmark[], params) => {
-  return state.filter(bookmark => bookmark.id != params.id);
+  return state.filter(bookmark => bookmark.id !== params.id);
 }
 
 export const bookmarksReducer = (state, action) => {
